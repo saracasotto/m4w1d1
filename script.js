@@ -93,9 +93,9 @@ function arraySum2(array) {
     return sum;
 }
 
-console.log(arraySum([1,2,3,4,5,6,7,8,9,10]))
-console.log(arraySum([3,3,3,3]))
-console.log(arraySum2([10,5,10,20]))
+console.log(arraySum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(arraySum([3, 3, 3, 3]))
+console.log(arraySum2([10, 5, 10, 20]))
 
 //6.Funzione che controlla che un array non contiene i numeri 1 e 3.
 //Se è cosi ritorna true, altrimenti false.
@@ -114,10 +114,10 @@ function checkWrongNumbers2(array) {
     return !array.includes(1) && !array.includes(3);
 }
 
-console.log(checkWrongNumbers([1,5,19,23]))
-console.log(checkWrongNumbers([2,3,19,21]))
-console.log(checkWrongNumbers([4,7,19,55]))
-console.log(checkWrongNumbers2([4,7,3,55]))
+console.log(checkWrongNumbers([1, 5, 19, 23]))
+console.log(checkWrongNumbers([2, 3, 19, 21]))
+console.log(checkWrongNumbers([4, 7, 19, 55]))
+console.log(checkWrongNumbers2([4, 7, 3, 55]))
 
 
 //7.Funzione per identificare i tipi di angoli
@@ -190,7 +190,7 @@ function mostUsed(string) {
     for (let i = 0; i < charArray.length; i++) {
         let char = charArray[i];
         // Conta le occorrenze del carattere corrente
-        let count = string.split(char).length - 1; 
+        let count = string.split(char).length - 1;
 
         // Se il conteggio corrente è maggiore del conteggio massimo, aggiorna mostUsedChar e maxCount
         if (count > maxCount) {
@@ -208,7 +208,7 @@ console.log(mostUsed("Sara Casotto"))
 //Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. 
 //Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.
 
-function anagrams(a,b) {
+function anagrams(a, b) {
 
     if (a.length !== b.length) {
         return false
@@ -218,14 +218,14 @@ function anagrams(a,b) {
     let sortedB = b.split("").sort().join("").toLowerCase()
 
     if (sortedA === sortedB) {
-            return true
-        } else {
-            return false
-        }
+        return true
+    } else {
+        return false
+    }
 
 }
-console.log(anagrams("listen","silent"))
-console.log(anagrams("ciao","epicode"))
+console.log(anagrams("listen", "silent"))
+console.log(anagrams("ciao", "epicode"))
 
 //3.Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), 
 //ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
@@ -248,7 +248,7 @@ function anagrams2(array, word) {
 }
 
 // Esempio di utilizzo
-console.log(anagrams2(["carenti", "incerta", "espatrio"], "cartine")); 
+console.log(anagrams2(["carenti", "incerta", "espatrio"], "cartine"));
 
 
 //4. Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è.
@@ -264,3 +264,14 @@ function reverse(word) {
 
 console.log(reverse("epicode"))
 console.log(reverse("level"))
+
+//5.5. Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario. 
+//Es. 189 ⇒ 981
+
+function reverseNumber(number) {
+    let stringNumber = number.toString()
+    let reversedNumber = stringNumber.split("").reverse().join("")
+    return parseInt(reversedNumber)
+}
+
+console.log(reverseNumber(19821))
