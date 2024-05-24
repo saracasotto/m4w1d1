@@ -249,3 +249,18 @@ function anagrams2(array, word) {
 
 // Esempio di utilizzo
 console.log(anagrams2(["carenti", "incerta", "espatrio"], "cartine")); 
+
+
+//4. Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è.
+
+function reverse(word) {
+    let reversedWord = word.split("").reverse().join("").toLowerCase()
+    if (reversedWord === word.toLowerCase()) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(reverse("epicode"))
+console.log(reverse("level"))
