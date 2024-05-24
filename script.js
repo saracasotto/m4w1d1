@@ -175,3 +175,77 @@ function createAcronym(phrase) {
 }
 
 console.log(createAcronym("Epicode Number One"))
+
+
+//ESERCIZI EXTRA
+
+//1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa.
+
+function mostUsed(string) {
+    let mostUsedChar = "";
+    let maxCount = 0; // Variabile per tenere traccia del conteggio massimo
+    let charArray = string.split(""); // Divide la stringa in un array di caratteri
+
+    // Cicla attraverso ciascun carattere nell'array
+    for (let i = 0; i < charArray.length; i++) {
+        let char = charArray[i];
+        // Conta le occorrenze del carattere corrente
+        let count = string.split(char).length - 1; 
+
+        // Se il conteggio corrente è maggiore del conteggio massimo, aggiorna mostUsedChar e maxCount
+        if (count > maxCount) {
+            mostUsedChar = char;
+            maxCount = count;
+        }
+    }
+
+    return mostUsedChar; // Restituisce il carattere più utilizzato
+}
+
+console.log(mostUsed("Sara Casotto"))
+
+//ontrolla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra. 
+//Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. 
+//Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.
+
+function anagrams(a,b) {
+
+    if (a.length !== b.length) {
+        return false
+    }
+
+    let sortedA = a.split("").sort().join("").toLowerCase()
+    let sortedB = b.split("").sort().join("").toLowerCase()
+
+    if (sortedA === sortedB) {
+            return true
+        } else {
+            return false
+        }
+
+}
+console.log(anagrams("listen","silent"))
+console.log(anagrams("ciao","epicode"))
+
+//3.Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), 
+//ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
+//Per esempio, partendo da “cartine” e [”carenti”, “incerta”, “espatrio”], 
+//il valore ritornato deve essere [”carenti”, “incerta”].
+
+function anagrams2(array, word) {
+    let result = []; // Array per contenere gli anagrammi corretti
+    let sortedWord = word.split("").sort().join("").toLowerCase(); // Ordina e converte in minuscolo la parola di riferimento
+
+    // Itera attraverso ciascun elemento dell'array di possibili anagrammi
+    for (let i of array) {
+        let sortedArrayWord = i.split("").sort().join("").toLowerCase(); // Ordina e converte in minuscolo ciascun possibile anagramma
+        if (sortedArrayWord === sortedWord) {
+            result.push(i); // Aggiungi l'anagramma corretto all'array result
+        }
+    }
+
+    return result; // Restituisce l'array degli anagrammi corretti
+}
+
+// Esempio di utilizzo
+console.log(anagrams2(["carenti", "incerta", "espatrio"], "cartine")); 
